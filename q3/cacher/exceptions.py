@@ -1,0 +1,4 @@
+
+
+class KeyNotFound(KeyError):
+    pass
