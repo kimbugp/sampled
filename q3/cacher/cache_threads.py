@@ -1,5 +1,7 @@
-from threading import Thread
+from threading import Thread, RLock
 import time
+import weakref
+import logging
 
 
 class CleanCache(Thread):
