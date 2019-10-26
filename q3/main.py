@@ -1,4 +1,5 @@
-from cacher.lrucache import LRUCache
+from cacher.node.lrucache import LRUCache
+from cacher.gateway.dist_lrucache import Client
 
 
 if __name__ == "__main__":

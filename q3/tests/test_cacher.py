@@ -1,6 +1,6 @@
 import unittest
 
-from cacher.lrucache import LRUCache
+from cacher.node.lrucache import LRUCache
 
 
 class TestCacheCRUD(unittest.TestCase):
