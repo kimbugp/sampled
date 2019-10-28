@@ -28,5 +28,7 @@ class SizedCache():
     def __setitem__(self, key, value): return self.set(key, value)
 
     def __clear_related(self):
+        """Clears the last item in objects related to the cache store
+        """
         for item in self.related:
             item.popitem(last=False)

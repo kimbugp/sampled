@@ -10,6 +10,13 @@ from .locker import lock_operation
 
 class LRUCache(SizedCache):
     def __init__(self, duration=2, can_expire=False, *args, **kwargs):
+        """Least Used Cache 
+
+        Args:
+            SizedCache (Cache): Cache object with size limitation
+            duration (int, optional): time for the cache to expire. Defaults to 2.
+            can_expire (bool, optional): Boolean whether cache should expire. Defaults to False.
+        """
         super().__init__(*args, **kwargs)
         self.duration = duration
         self.exp_times = OrderedDict()
@@ -27,6 +34,8 @@ class LRUCache(SizedCache):
         return value
 
     def delete_expired(self):
+        """ Deleted Expired Cache keys 
+        """
         check_time = datetime.now()
         if self.can_expire and self.duration:
             exp_times = deepcopy(self.exp_times)
