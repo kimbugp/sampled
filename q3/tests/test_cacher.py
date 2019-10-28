@@ -1,5 +1,5 @@
 import unittest
-
+import time
 from cacher.node.lrucache import LRUCache
 
 
@@ -26,6 +26,14 @@ class TestCacheCRUD(unittest.TestCase):
         cache['score'] = 10
         cache['age'] = 10
         cache['max'] = 10
+        with self.assertRaises(KeyError):
+            x = cache['score']
+
+    def test_all_keys_are_deleted_when_they_expire(self):
+        cache = LRUCache(0.1, max_size=100, can_expire=True)
+        cache['score'] = 10
+        cache['age'] = 10
+        time.sleep(0.2)
         with self.assertRaises(KeyError):
             x = cache['score']
 
