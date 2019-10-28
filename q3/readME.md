@@ -24,7 +24,7 @@ make start NODES=(number of node you need)
 Pick up the ip address from the started nodes which are to be latter used in the cache distributor
 
 ## Cache Gateway
-- Start the nodes gateway client can be intergrated into any  work flow by using the module
+- Start the nodes gateway client can be integrated into any  work flow by using the module
 
 ```
 from cacher.gateway import Client

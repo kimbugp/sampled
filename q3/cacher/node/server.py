@@ -11,8 +11,8 @@ def create_app(config):
     @app.route('/set', methods=['POST'])
     def set_data():
         data = request.json
-        key = data['key']
-        value = data['value']
+        key = data.get('key')
+        value = data.get('value')
         client.set(key, value)
         return Response(json.dumps({'value': value}))
 

@@ -21,7 +21,3 @@ def version_checker(version1, version2):
     }
     res = comparator(version1, version2)
     return "%s is %s %s" % (version1, mapper[res], version2)
-
-
-if __name__ == "__main__":
-    print(version_checker("12.4.5", "12.4.5.10"))
