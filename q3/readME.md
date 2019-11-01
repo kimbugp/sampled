@@ -25,11 +25,17 @@ Pick up the ip address from the started nodes which are to be latter used in the
 
 ## Cache Gateway
 - Start the nodes gateway client can be integrated into any  work flow by using the module
+- It can be started for testing by running 
+
+```
+make gateway&&make up
+```
 
 ```
 from cacher.gateway import Client
 ```
 Instantiate the object with the ip addresses of the nodes created in the step above 
+Use the docker container name for this. Docker will resolve then using the internal DNS
 
 ```
 client = Client([ip address list])

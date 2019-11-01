@@ -6,23 +6,33 @@ test:
 
 clean:
 	rm -rf *.pyc */*.pyc */*/*.pyc
-
-NODE :=`docker run --net node_network -d ${IMAGE}`
+	
 start:
 	NODES=$$NODES
 	docker network create --subnet=${PREFIX} node_network||true
 	number=1
-	while [[ $$number -le $$NODES ]] ; do \
+	while [[ $$number -lt $$NODES ]] ; do \
         ((number = number + 1)) ; \
-		echo "${NODE}";\
-		docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${NODE};\
+		docker run --net node_network -d ${IMAGE};\
     done
 
 build:
 	docker build -t ${IMAGE} .
+
 
 IMAGES := `docker ps -q`
 
 kill:
 	echo "${IMAGES}";\
 	docker kill ${IMAGES}
+
+names:
+	docker inspect -f "{{range .Containers}}{{.Name}}{{end}}" node_network
+
+gateway:
+	docker build -f Dockerfile.gateway -t cache-gateway .
+
+up:
+	docker run --net node_network -it cache-gateway;
+
+
