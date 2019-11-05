@@ -5,8 +5,8 @@ Distributed Least Recently Used cache
 ## Build Cache Node Image
 To build a single node image
 
-```bash
-rake build
+```
+make build
 ```
 
 ## Running Tests 

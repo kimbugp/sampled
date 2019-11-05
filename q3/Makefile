@@ -2,7 +2,7 @@ IMAGE := node_image
 PREFIX := 172.10.0.0/16
 .PHONY: test
 test:
-	python3 -m pytest
+	python -m unittest discover -v -p "*_test.py"
 
 clean:
 	rm -rf *.pyc */*.pyc */*/*.pyc
