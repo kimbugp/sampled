@@ -36,7 +36,3 @@ class TestCacheCRUD(unittest.TestCase):
         time.sleep(0.2)
         with self.assertRaises(KeyError):
             x = cache['score']
-
-if __name__ == "__main__":
-    suite = unittest.TestLoader().loadTestsFromTestCase(TestCacheCRUD)
-    unittest.TextTestRunner(verbosity=2).run(suite)
